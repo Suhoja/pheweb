@@ -68,7 +68,7 @@ You may also have columns for:
 | number of samples                      | `num_samples`  | `ns`, `n`                  | integer, must be the same for every variant in its phenotype |
 | number of controls                     | `num_controls` | `ns.ctrl`, `n_controls`    | integer, must be the same for every variant in its phenotype |
 | number of cases                        | `num_cases`    | `ns.case`, `n_cases`       | integer, must be the same for every variant in its phenotype |
-
+| VEP annotations                        | `consequence`  | `csq`, `BSQ` ,`ANN`        | string |
 
 Column names are case-insensitive.  If your file has a different column name, set `field_aliases = {"column_name": "field_name"}` in `config.py`.  For example, `field_aliases = {'P_BOLT_LMM_INF': 'pval', 'NSAMPLES': 'num_samples'}`.
 
@@ -121,8 +121,6 @@ You can see other methods [here](etc/detailed-loading-instructions.md#making-phe
 Run `pheweb process`.
 
 To distribute jobs across a cluster, follow [these instructions](etc/detailed-loading-instructions.md#distributing-jobs-across-a-cluster).
-
-To include VEP annotations, follow [these instructions](etc/detailed-loading-instructions.md#annotating-with-vep).
 
 If something breaks and you can't understand the error message or it's something that PheWeb should support by default, [open an issue on github](https://github.com/statgen/pheweb/issues/new) or email me.
 
