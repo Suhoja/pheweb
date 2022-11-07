@@ -159,6 +159,13 @@ per_assoc_fields: Dict[str,Dict[str,Any]] = {
         'nullable': True,
         'display': 'Tstat',
     },
+    'csq', {
+            'aliases': ['consequence','BSQ','ANN'],
+            'tooltip_underscoretemplate': False,
+            'tooltip_lztemplate': False,
+            'nullable': True,
+            'display': 'Consequence',
+    },
 }
 
 per_pheno_fields: Dict[str,Dict[str,Any]] = {
