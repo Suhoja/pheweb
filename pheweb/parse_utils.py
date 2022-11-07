@@ -32,7 +32,7 @@ default_field = {
 # Note; key order in these dicts is the order of columns in VariantFileWriter
 per_variant_fields: Dict[str,Dict[str,Any]] = {
     'chrom': {
-        'aliases': ['#CHROM', 'chr'],
+        'aliases': ['#CHROM', 'chr', '#chrom'],
         'required': True,
         'tooltip_underscoretemplate': '<b><%= d.chrom %>:<%= d.pos.toLocaleString() %> <%= d.ref %> / <%= d.alt %></b><br>',
         'tooltip_lztemplate': False,
@@ -46,18 +46,19 @@ per_variant_fields: Dict[str,Dict[str,Any]] = {
         'tooltip_lztemplate': False,
     },
     'ref': {
-        'aliases': ['reference'],
+        'aliases': ['reference', 'allele0', 'A1'],
         'required': True,
         'tooltip_underscoretemplate': False,
         'tooltip_lztemplate': False,
     },
     'alt': {
-        'aliases': ['alternate'],
+        'aliases': ['alternate', 'allele1', 'A2'],
         'required': True,
         'tooltip_underscoretemplate': False,
         'tooltip_lztemplate': False,
     },
     'rsids': {
+        'aliases': ['RS', 'rs', 'rsid', 'rsids'],
         'from_assoc_files': False,
         'tooltip_underscoretemplate': '<% _.each(_.filter((d.rsids||"").split(",")), function(rsid) { %>rsid: <b><%= rsid %></b><br><% }) %>',
         'tooltip_lztemplate': {'condition': 'rsid', 'template': '<strong>{{rsid}}</strong><br>'},
@@ -74,7 +75,7 @@ per_variant_fields: Dict[str,Dict[str,Any]] = {
 
 per_assoc_fields: Dict[str,Dict[str,Any]] = {
     'pval': {
-        'aliases': ['PVALUE', 'P', 'P.VALUE'],
+        'aliases': ['PVALUE', 'P', 'P.VALUE', 'p-value'],
         'required': True,
         'type': float,
         'nullable': True,
@@ -96,7 +97,7 @@ per_assoc_fields: Dict[str,Dict[str,Any]] = {
         'display': 'Beta',
     },
     'sebeta': {
-        'aliases': ['se'],
+        'aliases': ['se', 'beta_se'],
         'type': float,
         'nullable': True,
         'sigfigs': 2,
@@ -118,7 +119,7 @@ per_assoc_fields: Dict[str,Dict[str,Any]] = {
         'display': 'MAF',
     },
     'af': {
-        'aliases': ['A1FREQ', 'FRQ'],
+        'aliases': ['A1FREQ', 'FRQ', 'FREQ'],
         'type': float,
         'range': [0, 1],
         'proportion_sigfigs': 2,
@@ -142,12 +143,14 @@ per_assoc_fields: Dict[str,Dict[str,Any]] = {
         'display': 'AF among controls',
     },
     'ac': {
+        'aliases': ['AC'],
         'type': float,
         'range': [0, None],
         'decimals': 1,
         'display': 'AC',
     },
     'r2': {
+        'aliases': ['INFO'],
         'type': float,
         'proportion_sigfigs': 2,
         'nullable': True,
@@ -160,11 +163,11 @@ per_assoc_fields: Dict[str,Dict[str,Any]] = {
         'display': 'Tstat',
     },
     'csq', {
-            'aliases': ['consequence','BSQ','ANN'],
-            'tooltip_underscoretemplate': False,
-            'tooltip_lztemplate': False,
-            'nullable': True,
-            'display': 'Consequence',
+        'aliases': ['consequence','BSQ','ANN'],
+        'tooltip_underscoretemplate': False,
+        'tooltip_lztemplate': False,
+        'nullable': True,
+        'display': 'Consequence',
     },
 }
 
@@ -189,6 +192,12 @@ per_pheno_fields: Dict[str,Dict[str,Any]] = {
         'nullable': True,
         'range': [0, None],
         'display': '#samples',
+    },
+    'stat_model', {
+        'aliases': ['model'],
+        'type': str,
+        'nullable': False,
+        'display': 'Model',
     },
     # TODO: phenocode, phenostring, category, &c?
     # TODO: include `assoc_files` with {never_send: True}?
