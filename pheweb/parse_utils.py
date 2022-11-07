@@ -114,7 +114,7 @@ per_assoc_fields: Dict[str,Dict[str,Any]] = {
     'maf': {
         'type': float,
         'range': [0, 1],
-        'sigfigs': 2,
+        'sigfigs': 3,
         'tooltip_lztemplate': {'transform': '|percent'},
         'display': 'MAF',
     },
@@ -168,6 +168,22 @@ per_assoc_fields: Dict[str,Dict[str,Any]] = {
         'tooltip_lztemplate': False,
         'nullable': True,
         'display': 'Consequence',
+    },
+    'af_cases', {
+        'type': float,
+        'sigfigs': 3,
+        'range': [0, 1],
+        'tooltip_lztemplate': {'transform': '|percent'},
+        'nullable': True,
+        'display': 'AF_Cases',
+    },
+     'af_controls', {
+        'type': float,
+        'sigfigs': 3,
+        'range': [0, 1],
+        'tooltip_lztemplate': {'transform': '|percent'},
+        'nullable': True,
+        'display': 'AF_Controls',
     },
 }
 
