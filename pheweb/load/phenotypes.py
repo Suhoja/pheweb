@@ -27,7 +27,7 @@ def get_phenotypes_including_top_variants() -> Iterator[Dict[str,Any]]:
             'num_peaks': num_peaks,
             'gc_lambda_hundred': gc_lambda_hundred,  # numbers in keys break streamtable
         }
-        for key in ['num_samples', 'num_controls', 'num_cases', 'category', 'phenostring']:
+        for key in ['num_samples', 'num_controls', 'num_cases', 'category', 'phenostring', 'stat_model']:
             if key in pheno: ret[key] = pheno[key]
         if isinstance(ret['nearest_genes'], list): ret['nearest_genes'] = ','.join(ret['nearest_genes'])
         yield ret
