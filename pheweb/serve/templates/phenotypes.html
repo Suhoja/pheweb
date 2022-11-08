@@ -51,7 +51,6 @@
     <table id="stream_table" class="table table-striped table-bordered">
       <thead>
         <tr>
-          <th>Category</th>
           <th>Phenotype</th>
           <th>#Samples</th>
           <th>GCλ0.01</th>
@@ -69,7 +68,6 @@
 
 <script type="text/template" id="streamtable-template">
   <tr>
-    <td><%= h.category %></td>
     <td><a style="color:black" href="{{ url_for('.pheno_page', phenocode='').rstrip('/') }}/<%= h.phenocode %>">
         <%= h.phenostring || h.phenocode %>
     </a></td>
