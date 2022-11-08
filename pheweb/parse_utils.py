@@ -162,14 +162,14 @@ per_assoc_fields: Dict[str,Dict[str,Any]] = {
         'nullable': True,
         'display': 'Tstat',
     },
-    'csq', {
+    'csq': {
         'aliases': ['consequence','BSQ','ANN'],
         'tooltip_underscoretemplate': False,
         'tooltip_lztemplate': False,
         'nullable': True,
         'display': 'Consequence',
     },
-    'af_cases', {
+    'af_cases': {
         'type': float,
         'sigfigs': 3,
         'range': [0, 1],
@@ -177,7 +177,7 @@ per_assoc_fields: Dict[str,Dict[str,Any]] = {
         'nullable': True,
         'display': 'AF_Cases',
     },
-     'af_controls', {
+     'af_controls': {
         'type': float,
         'sigfigs': 3,
         'range': [0, 1],
@@ -209,7 +209,7 @@ per_pheno_fields: Dict[str,Dict[str,Any]] = {
         'range': [0, None],
         'display': '#samples',
     },
-    'stat_model', {
+    'stat_model': {
         'aliases': ['model'],
         'type': str,
         'nullable': False,
