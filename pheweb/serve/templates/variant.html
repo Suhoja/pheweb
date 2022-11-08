@@ -75,7 +75,6 @@
     <table id="stream_table" class="table table-striped table-bordered">
       <thead>
         <tr>
-          <th>Category</th>
           <th>Phenotype</th>
           <th>P-value</th>
           <th>Effect Size (se)</th>
@@ -91,9 +90,6 @@
 
 <script type="text/template" id="streamtable-template">
   <tr>
-    <td style="color:<%= d.color %>">
-      <%= d.category %>
-    </td>
     <td><a style="color:black" href="{{ url_for('.pheno_page', phenocode='').rstrip('/') }}/<%= d.phenocode %>"><%= d.phenostring || d.phenocode %></a></td>
     <td><%= (d.pval==0) ? '≤1e-320' : d.pval.toExponential(1) %></td>
     <td><%= (d.beta!==undefined) ? d.beta.toPrecision(2) : "" %><%= (d.sebeta!==undefined) ? " ("+d.sebeta.toPrecision(2)+")" : "" %></td>
